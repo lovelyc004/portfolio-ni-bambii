@@ -22,64 +22,66 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-[#f9f5dd] pt-20 pb-10 px-6 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+    <footer id="contact" className="bg-[#fdf8da] pt-24 pb-16 px-6 relative overflow-hidden">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-around items-center md:items-start gap-16">
         
         {/* Left Side - Quick Links */}
-        <div className="flex flex-col items-center md:items-start z-10 text-center md:text-left">
-          <h3 className="font-margarine text-bam-red text-2xl mb-6">QUICK LINKS</h3>
-          <nav className="flex flex-col gap-4 mb-16">
-            <a href="#home" className="font-margarine text-bam-green hover:text-bam-red text-lg transition-colors">HOME</a>
-            <a href="#about" className="font-margarine text-bam-green hover:text-bam-red text-lg transition-colors">ABOUT ME</a>
-            <a href="#experience" className="font-margarine text-bam-green hover:text-bam-red text-lg transition-colors">EXPERIENCE & SKILLS</a>
-            <a href="#projects" className="font-margarine text-bam-green hover:text-bam-red text-lg transition-colors">MY PROJECTS</a>
-            <a href="#contact" className="font-margarine text-bam-green hover:text-bam-red text-lg transition-colors">CONTACT ME</a>
+        <div className="flex flex-col items-center md:items-start z-10 text-center md:text-left mt-8">
+          <h3 className="font-margarine text-[#cc3838] text-[28px] mb-8">QUICK LINKS</h3>
+          <nav className="flex flex-col gap-6 mb-20">
+            <a href="#home" className="font-margarine text-[#4c9e30] hover:text-[#cc3838] text-[19px] transition-colors">HOME</a>
+            <a href="#about" className="font-margarine text-[#4c9e30] hover:text-[#cc3838] text-[19px] transition-colors">ABOUT ME</a>
+            <a href="#experience" className="font-margarine text-[#4c9e30] hover:text-[#cc3838] text-[19px] transition-colors">EXPERIENCE & SKILLS</a>
+            <a href="#projects" className="font-margarine text-[#4c9e30] hover:text-[#cc3838] text-[19px] transition-colors">MY PROJECTS</a>
+            <a href="#contact" className="font-margarine text-[#4c9e30] hover:text-[#cc3838] text-[19px] transition-colors">CONTACT ME</a>
           </nav>
 
-          <div className="text-bam-green text-sm mt-auto font-mochiy max-w-[250px]">
+          <div className="text-[#4c9e30] text-[11px] font-stack font-medium max-w-[250px] leading-snug">
             <p>Build with Vite, React, and Tailwind CSS</p>
-            <p className="mt-1">© 2026 Lovely Mae Callosa</p>
+            <p className="mt-0.5">© 2026 Lovely Mae Callosa</p>
             <p>All rights reserved.</p>
           </div>
         </div>
 
         {/* Right Side - Contact Card */}
-        <div className="relative z-20 w-full max-w-md">
-          <div className="bg-[#f0df8e] rounded-3xl p-8 pb-16 shadow-lg border border-yellow-200">
+        <div className="relative z-20 w-full max-w-[480px]">
+          <div className="bg-[#eedf83] rounded-[32px] p-8 pb-10 shadow-lg relative">
             
-            <div className="flex items-center gap-6 mb-8">
+            <div className="flex items-center gap-5 mb-8">
               <img 
                 src="/assets/my-pictures/lovely-mae-callosa-contact-profile.jpg" 
                 alt="Lovely Mae Callosa" 
-                className="w-24 h-24 rounded-2xl object-cover border-4 border-black"
+                className="w-28 h-28 rounded-3xl object-cover border-[3px] border-black"
               />
-              <div>
-                <h2 className="font-margarine text-bam-red text-2xl leading-tight mb-1">LOVELY MAE<br/>CALLOSA</h2>
-                <p className="font-mochiy text-bam-green text-[10px] tracking-wider uppercase">GRAPHIC DESIGNER AND ILLUSTRATOR</p>
+              <div className="flex flex-col justify-center">
+                <h2 className="font-margarine text-[#cc3838] text-[22px] sm:text-[26px] leading-[1] mb-1 tracking-tight">LOVELY MAE<br/>CALLOSA</h2>
+                <p className="font-stack font-bold text-[#4c9e30] text-[10px] sm:text-[9px] md:text-[10px] tracking-wide uppercase mt-1">GRAPHIC DESIGNER AND ILLUSTRATOR</p>
               </div>
             </div>
 
             <button 
               onClick={() => setIsContactOpen(true)}
-              className="w-full bg-[#f2cc3a] hover:bg-yellow-500 border-2 border-black text-bam-red font-margarine text-xl py-3 rounded-full flex items-center justify-center gap-3 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all mb-8"
+              className="w-full bg-[#f3b01c] hover:bg-[#e0a015] border-[2px] border-black text-[#cc3838] font-margarine text-[18px] sm:text-[22px] py-3 sm:py-3.5 rounded-[20px] flex items-center justify-center gap-3 shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all mb-8"
             >
-              <SendOutlined style={{ fontSize: '20px' }} />
+              <SendOutlined style={{ fontSize: '20px', color: '#cc3838' }} />
               CONTACT NOW
             </button>
 
-            <div className="flex justify-start gap-6 text-bam-red ml-4">
-              <a href="#" className="hover:text-bam-green hover:-translate-y-1 transition-all"><LinkedinFilled style={{ fontSize: '28px' }} /></a>
-              <a href="#" className="hover:text-bam-green hover:-translate-y-1 transition-all"><InstagramFilled style={{ fontSize: '28px' }} /></a>
-              <a href="#" className="hover:text-bam-green hover:-translate-y-1 transition-all"><MessageFilled style={{ fontSize: '28px' }} /></a>
+            <div className="flex justify-start gap-8 text-[#a33333] ml-6">
+              <a href="#" className="hover:text-[#4c9e30] hover:-translate-y-1 transition-all"><LinkedinFilled style={{ fontSize: '26px' }} /></a>
+              <a href="#" className="hover:text-[#4c9e30] hover:-translate-y-1 transition-all"><InstagramFilled style={{ fontSize: '26px' }} /></a>
+              <a href="#" className="hover:text-[#4c9e30] hover:-translate-y-1 transition-all"><MessageFilled style={{ fontSize: '26px' }} /></a>
             </div>
 
           </div>
 
           {/* Character Clipart */}
-          <img 
+          <motion.img 
             src="/assets/cliparts/contact-me-clip-03.png" 
             alt="Character Clipart" 
-            className="absolute -bottom-16 -right-16 w-56 drop-shadow-xl z-30"
+            className="absolute -bottom-[80px] -right-[90px] w-72 md:w-80 drop-shadow-xl z-30 pointer-events-none"
+            animate={{ y: [0, -15, 0], rotate: [0, -3, 3, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
       </div>

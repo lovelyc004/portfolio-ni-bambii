@@ -32,23 +32,37 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 flex justify-between items-center ${
-        isScrolled ? 'bg-white/70 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="font-margarine text-bam-red text-2xl tracking-wider font-bold cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-        BAM
+    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center transition-all duration-300">
+      
+      {/* Progressive Blur Background */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-48 pointer-events-none -z-10 bg-gradient-to-b from-white/95 via-white/50 to-transparent backdrop-blur-md"
+        style={{ 
+          maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', 
+          WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' 
+        }}
+      ></div>
+
+      <div className="cursor-pointer z-10" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+        <motion.img 
+          src="/bam.png" 
+          alt="BAM" 
+          className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-12' : 'h-16'}`}
+          initial={{ scale: 0, rotate: -180 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+          whileHover={{ scale: 1.2, rotate: 10 }}
+        />
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex gap-8">
+      <div className="hidden md:flex gap-8 z-10">
         {links.map((link) => (
           <a
             key={link.name}
             href={link.href}
             onClick={(e) => handleScrollTo(e, link.href)}
-            className="font-happy text-bam-green hover:text-bam-red transition-colors text-lg tracking-wide"
+            className="font-happy text-bam-blue hover:text-bam-red transition-all duration-200 text-lg tracking-wide hover:font-bold hover:scale-105 drop-shadow-sm hover:drop-shadow-md"
           >
             {link.name}
           </a>

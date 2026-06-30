@@ -21,9 +21,9 @@ const Folder = ({ title, images, description }: FolderProps) => {
         className="relative w-64 h-48 cursor-pointer mx-auto group"
       >
         {/* Back of folder */}
-        <div className="absolute inset-0 bg-[#e6bd24] rounded-xl rounded-tl-none shadow-md transform group-hover:-rotate-2 transition-transform duration-300"></div>
+        <div className="absolute inset-0 bg-[#e0b020] rounded-xl rounded-tl-none shadow-md transform group-hover:-rotate-2 transition-transform duration-300"></div>
         {/* Tab back */}
-        <div className="absolute -top-6 left-0 w-1/3 h-8 bg-[#e6bd24] rounded-t-xl"></div>
+        <div className="absolute -top-6 left-0 w-1/3 h-8 bg-[#e0b020] rounded-t-xl"></div>
         
         {/* Paper peeking out on hover */}
         <div className="absolute inset-2 bg-white rounded shadow-sm transform translate-y-2 opacity-0 group-hover:-translate-y-4 group-hover:opacity-100 transition-all duration-300 z-10 flex items-center justify-center overflow-hidden">
@@ -32,11 +32,11 @@ const Folder = ({ title, images, description }: FolderProps) => {
         </div>
 
         {/* Front of folder */}
-        <div className="absolute inset-0 bg-bam-yellow rounded-xl rounded-tl-none shadow-lg z-20 flex items-center justify-center p-6 text-center transform group-hover:rotate-2 transition-transform duration-300">
-          <h3 className="font-margarine text-bam-green text-2xl uppercase tracking-wider drop-shadow-sm leading-tight">{title}</h3>
+        <div className="absolute inset-0 bg-[#f3c734] rounded-xl rounded-tl-none shadow-lg z-20 flex items-center justify-center p-4 text-center transform group-hover:rotate-2 transition-transform duration-300">
+          <h3 className="font-stack font-extrabold text-[#4c9e30] text-2xl uppercase tracking-tight drop-shadow-sm leading-tight whitespace-pre-wrap">{title}</h3>
         </div>
         {/* Tab front */}
-        <div className="absolute -top-6 left-0 w-1/3 h-8 bg-bam-yellow rounded-t-xl z-20"></div>
+        <div className="absolute -top-6 left-0 w-1/3 h-8 bg-[#f3c734] rounded-t-xl z-20"></div>
       </motion.div>
 
       {/* Modal */}

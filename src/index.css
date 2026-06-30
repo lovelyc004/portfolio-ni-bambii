@@ -32,6 +32,8 @@
   font-display: swap;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-happy: 'Happy Monkey', cursive;
   --font-margarine: 'Margarine', cursive;

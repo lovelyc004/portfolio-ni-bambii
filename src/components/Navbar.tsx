@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   const links = [
     { name: 'HOME', href: '#home' },
@@ -36,18 +38,19 @@ const Navbar = () => {
       
       {/* Progressive Blur Background */}
       <div 
-        className="absolute top-0 left-0 right-0 h-48 pointer-events-none -z-10 bg-gradient-to-b from-white/95 via-white/50 to-transparent backdrop-blur-md"
+        className="absolute top-0 left-0 right-0 h-48 pointer-events-none -z-10 bg-gradient-to-b from-white/20 dark:from-black/40 to-transparent backdrop-blur-2xl transition-colors duration-500"
         style={{ 
           maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', 
           WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' 
         }}
       ></div>
 
+      {/* Logo */}
       <div className="cursor-pointer z-10" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
         <motion.img 
           src="/bam.png" 
           alt="BAM" 
-          className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-12' : 'h-16'}`}
+          className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-10' : 'h-14'} drop-shadow-md`}
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -55,24 +58,37 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Desktop Menu */}
-      <div className="hidden md:flex gap-8 z-10">
-        {links.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            onClick={(e) => handleScrollTo(e, link.href)}
-            className="font-happy text-bam-blue hover:text-bam-red transition-all duration-200 text-lg tracking-wide hover:font-bold hover:scale-105 drop-shadow-sm hover:drop-shadow-md"
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
+      {/* Right Side: Links & Controls */}
+      <div className="flex items-center gap-4 md:gap-6 z-10">
+        
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-8 items-center">
+          {links.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleScrollTo(e, link.href)}
+              className="font-happy text-bam-blue dark:text-[#f9f5dd] hover:text-bam-red dark:hover:text-bam-yellow transition-all duration-200 text-lg tracking-wide hover:font-bold hover:scale-105 drop-shadow-sm hover:drop-shadow-md"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
 
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-bam-blue">
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-bam-blue dark:text-bam-yellow p-1">
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Dark Mode Toggle */}
+        <button 
+          onClick={toggleDarkMode}
+          className="p-2 ml-2 rounded-full bg-white/50 dark:bg-black/50 text-bam-blue dark:text-bam-yellow shadow-sm hover:scale-110 active:scale-95 transition-all"
+          title="Toggle Dark Mode"
+        >
+          {isDarkMode ? <Moon size={22} fill="currentColor" /> : <Sun size={22} fill="currentColor" />}
         </button>
       </div>
 

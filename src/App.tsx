@@ -14,8 +14,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize Lenis for smooth scrolling
-    const lenis = new Lenis();
+    // Initialize Lenis for smooth, slower scrolling
+    const lenis = new Lenis({
+      duration: 2.0,           // Makes the scroll animation take longer (default 1.2)
+      wheelMultiplier: 0.5,    // Requires twice as much physical mouse wheel movement
+      touchMultiplier: 1.0,    // Makes touch dragging feel heavier (default 2)
+      lerp: 0.05               // Slower interpolation for a 'heavier' feel
+    });
 
     function raf(time: number) {
       lenis.raf(time);

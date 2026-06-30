@@ -1,8 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Experience = () => {
   const ref = useRef(null);
+  const { isDarkMode } = useTheme();
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -14,12 +17,12 @@ const Experience = () => {
     <section 
       id="experience" 
       ref={ref}
-      className="min-h-screen py-20 flex items-center justify-center relative overflow-hidden bg-[#578cd5]"
+      className="min-h-screen py-20 flex items-center justify-center relative overflow-hidden bg-[#578cd5] dark:bg-[#1e3450] z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.3)] transition-colors duration-500"
     >
       <motion.div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{ 
-          backgroundImage: "url('/assets/backgrounds/Skills-background-03.png')",
+          backgroundImage: `url('${isDarkMode ? '/assets/backgrounds/dark/Skills-background-dark-mode.jpg' : '/assets/backgrounds/Skills-background-03.png'}')`,
           y: backgroundY,
           scale: 1.2
         }}
@@ -51,11 +54,11 @@ const Experience = () => {
             </div>
             
             <div className="mb-8 px-2 md:px-6">
-              <div className="flex justify-between items-baseline flex-wrap gap-2 mb-1">
-                <h3 className="font-bold text-lg">Leyte Normal University</h3>
-                <span className="font-bold text-sm">2022-2026</span>
+              <div className="flex justify-between items-baseline flex-wrap gap-2 mb-2">
+                <h3 className="font-bold text-xl">Leyte Normal University</h3>
+                <span className="font-bold text-base">2022-2026</span>
               </div>
-              <p className="text-sm font-medium text-gray-700">Bachelor of Science in Information Technology</p>
+              <p className="text-base font-medium text-gray-700 leading-relaxed">Bachelor of Science in Information Technology</p>
             </div>
 
             <div className="flex flex-col items-center mb-6 mt-10">
@@ -69,32 +72,32 @@ const Experience = () => {
               <h2 className="font-margarine text-[#4c9e30] text-3xl tracking-wide uppercase">Experience</h2>
             </div>
 
-            <div className="space-y-6 px-2 md:px-6 pb-4">
+            <div className="space-y-8 px-2 md:px-6 pb-4">
               <div>
-                <div className="flex justify-between items-baseline flex-wrap gap-2 mb-0.5">
-                  <h3 className="font-bold text-lg">Internship - PAMCO</h3>
-                  <span className="font-bold text-sm">FEB - MAY 2026</span>
+                <div className="flex justify-between items-baseline flex-wrap gap-2 mb-2">
+                  <h3 className="font-bold text-xl">Internship - PAMCO</h3>
+                  <span className="font-bold text-base">FEB - MAY 2026</span>
                 </div>
-                <p className="text-sm font-medium text-gray-700">LNU Public Affairs and Marketing Communication Office</p>
+                <p className="text-base font-medium text-gray-700 leading-relaxed">LNU Public Affairs and Marketing Communication Office</p>
               </div>
 
               <div>
-                <div className="flex justify-between items-baseline flex-wrap gap-2 mb-0.5">
-                  <h3 className="font-bold text-lg">An Lantawan</h3>
-                  <span className="font-bold text-sm">2023-2025</span>
+                <div className="flex justify-between items-baseline flex-wrap gap-2 mb-2">
+                  <h3 className="font-bold text-xl">An Lantawan</h3>
+                  <span className="font-bold text-base">2023-2025</span>
                 </div>
-                <p className="text-sm font-medium text-gray-700">Became part of An Lantawan as a Creatives Staff (Illustrator).</p>
+                <p className="text-base font-medium text-gray-700 leading-relaxed">Became part of An Lantawan as a Creatives Staff (Illustrator).</p>
               </div>
 
               <div>
-                <div className="flex justify-between items-baseline flex-wrap gap-2 mb-0.5">
-                  <h3 className="font-bold text-lg">DIGITS Creative Committe</h3>
-                  <span className="font-bold text-sm">2024-2025</span>
+                <div className="flex justify-between items-baseline flex-wrap gap-2 mb-2">
+                  <h3 className="font-bold text-xl">DIGITS Creative Committe</h3>
+                  <span className="font-bold text-base">2024-2025</span>
                 </div>
-                <ul className="list-disc pl-5 text-sm font-medium text-gray-700 space-y-0.5 leading-snug">
+                <ul className="list-disc pl-5 text-base font-medium text-gray-700 space-y-2 leading-relaxed">
                   <li>Continued as Illustrator in An Lantawan Student Publication.</li>
                   <li>Became part of the Digits Publishing and Creatives Committee serving as:
-                    <ul className="list-[circle] pl-5 mt-0.5 space-y-0.5">
+                    <ul className="list-[circle] pl-5 mt-2 space-y-1">
                       <li>Layout Artist</li>
                       <li>Photojournalist</li>
                       <li>Illustrator</li>

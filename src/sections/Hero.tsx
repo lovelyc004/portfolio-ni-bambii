@@ -1,8 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Hero = () => {
   const ref = useRef(null);
+  const { isDarkMode } = useTheme();
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
@@ -15,22 +18,22 @@ const Hero = () => {
     <section 
       id="home" 
       ref={ref}
-      className="min-h-screen relative flex flex-col items-center justify-center overflow-hidden bg-bam-blue"
+      className="min-h-screen relative flex flex-col items-center justify-center overflow-hidden bg-bam-blue dark:bg-[#121212]"
     >
       <motion.div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('/assets/backgrounds/hero-section-background-only.png')",
+          backgroundImage: `url('${isDarkMode ? '/assets/backgrounds/dark/hero-section-background-only-dark-mode.jpg' : '/assets/backgrounds/hero-section-background-only.png'}')`,
           y: backgroundY,
           scale: 1.1 
         }}
       />
       
-      <motion.div style={{ y: textY }} className="z-10 w-full flex justify-center">
+      <motion.div style={{ y: textY }} className="z-10 w-full flex justify-center px-4 md:px-0">
         <motion.img 
-          src="/assets/backgrounds/hero-section-portfolio2026-text-only.png"
+          src={isDarkMode ? '/assets/backgrounds/dark/hero-section-portfolio2026-text-only-dark-mode.png' : '/assets/backgrounds/hero-section-portfolio2026-text-only.png'}
           alt="Portfolio 2026"
-          className="w-full h-auto object-contain"
+          className="w-[140%] max-w-[140%] md:w-full md:max-w-full h-auto object-contain"
           initial={{ opacity: 0, scale: 0.9, y: 10 }}
           animate={{ 
             opacity: 1, 

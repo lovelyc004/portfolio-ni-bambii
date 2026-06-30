@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Happy Monkey';
+  src: url('/assets/fonts/Happy_Monkey/HappyMonkey-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Margarine';
+  src: url('/assets/fonts/Margarine/Margarine-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mochiy Pop One';
+  src: url('/assets/fonts/Mochiy_Pop_One/MochiyPopOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stack Sans Headline';
+  src: url('/assets/fonts/Stack_Sans_Headline/static/StackSansHeadline-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-happy: 'Happy Monkey', cursive;
+  --font-margarine: 'Margarine', cursive;
+  --font-mochiy: 'Mochiy Pop One', sans-serif;
+  --font-stack: 'Stack Sans Headline', sans-serif;
+  
+  --color-bam-yellow: #f2cc3a;
+  --color-bam-red: #c03333;
+  --color-bam-blue: #3260a8;
+  --color-bam-green: #4fae3b;
+  --color-bam-bg: #f9f5dd;
+  
+  --color-bam-locker-blue: #5480a8;
+}
+
+body {
+  font-family: 'Stack Sans Headline', sans-serif;
+  background-color: var(--color-bam-bg);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bam-bg); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bam-yellow); 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4b02b; 
+}
